@@ -39,7 +39,7 @@ for x in range(3):
         try:
             # Remember that your sentences can only be 16 characters long!
             display.lcd_display_string("Orange Line Inb.", 1)
-            display.lcd_display_string("LIZZIE IS LATE", 2)
+            display.lcd_display_string("Comm College", 2)
             sleep(2)
             display.lcd_clear()
             sleep(1) 
