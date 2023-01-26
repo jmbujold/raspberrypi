@@ -4,10 +4,16 @@ from urllib.request import urlopen
 # import json library to parse JSON response from API
 import json 
 
+#import LCD Driver (installed on Pi)
+import drivers
+
 # using datetime module, used to get current time
 from datetime import datetime, timezone, timedelta
 from dateutil.parser import parse
- 
+
+# Load the driver and set it to "display"
+# If you use something from the driver library use the "display." prefix first
+display = drivers.Lcd()
  
 # ct stores current time, ISO format seemed to match the MBTA time (looks like '2023-01-25T11:51:01')
 ct = parse(datetime.now().replace(microsecond=0).isoformat())
@@ -34,3 +40,18 @@ print("Next Train: ", first_train - ct, " Min")
 print("---")
 print("Community College Inbound")
 print("Fol. Train: ", second_train - ct, " Min")
+
+# Main body of code
+try:
+    while True:
+        # Remember that your sentences can only be 16 characters long!
+        print("Writing to display")
+        display.lcd_display_string("Com Col Nxt Trn:", 1)  # Write line of text to first line of display
+        display.lcd_display_string(first_train - ct, 2)  # Write line of text to second line of display
+        sleep(2)                                           # Give time for the message to be read
+        display.lcd_clear()                                # Clear the display of any data
+        sleep(1)                                           # Give time for the message to be read
+except KeyboardInterrupt:
+    # If there is a KeyboardInterrupt (when you press ctrl+c), exit the program and cleanup
+    print("Cleaning up!")
+    display.lcd_clear()
