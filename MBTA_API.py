@@ -58,6 +58,6 @@ for x in range(3):
         display.lcd_clear()                                # Clear the display of any data
         sleep(1)                                           # Give time for the message to be read
     except:
-    print("error in except")
-    display.lcd_clear()
+        print("error in except")
+        display.lcd_clear()
 display.lcd_clear()
