@@ -24,7 +24,7 @@ print(response)
 
 #load JSON to variable, then get first train (0) and second train (1) arrival times. Time looks like '2023-01-25T11:57:00-05:00'
 
-data_json = json.loads(response.read())
+data_json = json.dumps(response.read())
 first_train = parse(data_json['data'][0]['attributes']['arrival_time']).replace(tzinfo=None)
 second_train = parse(data_json['data'][1]['attributes']['arrival_time']).replace(tzinfo=None)
 
