@@ -35,11 +35,11 @@ for x in range(3):
     #load JSON to variable, then get first train (0) and second train (1) arrival times. Time looks like '2023-01-25T11:57:00-05:00'
     first_train = parse(data_json['data'][0]['attributes']['arrival_time']).replace(tzinfo=None)
     second_train = parse(data_json['data'][1]['attributes']['arrival_time']).replace(tzinfo=None)
-    for y in range(4):
+    for y in range(3):
         try:
             # Remember that your sentences can only be 16 characters long!
             display.lcd_display_string("Orange Line Inb.", 1)
-            display.lcd_display_string("Community Collg.", 2)
+            display.lcd_display_string("LIZZIE IS LATE", 2)
             sleep(2)
             display.lcd_clear()
             sleep(1) 
