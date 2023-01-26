@@ -44,12 +44,12 @@ for x in range(3):
             display.lcd_clear()
             sleep(1) 
             display.lcd_display_string("Next Train", 1)  # Write line of text to first line of display
-            display.lcd_display_string(str(first_train - ct), 2)  # Write line of text to second line of display
+            display.lcd_display_string(str(first_train - ct) + " Min", 2)  # Write line of text to second line of display
             sleep(2)                                           # Give time for the message to be read
             display.lcd_clear()                                # Clear the display of any data
             sleep(1)                                           # Give time for the message to be read
             display.lcd_display_string("Following Train", 1)  # Write line of text to first line of display
-            display.lcd_display_string(str(second_train - ct), 2)  # Write line of text to second line of display
+            display.lcd_display_string(str(second_train - ct) + " Min", 2)  # Write line of text to second line of display
             sleep(2)                                           # Give time for the message to be read
             display.lcd_clear()                                # Clear the display of any data
             sleep(1)                                           # Give time for the message to be read
