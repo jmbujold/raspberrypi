@@ -43,8 +43,8 @@ print("Community College Inbound")
 print("Fol. Train: ", second_train - ct, " Min")
 
 # Main body of code
-try:
-    while True:
+for x in range(3):
+    try:
         # Remember that your sentences can only be 16 characters long!
         print("Writing to display")
         display.lcd_display_string("Comm Col Inbound", 1)  # Write line of text to first line of display
@@ -57,7 +57,7 @@ try:
         sleep(2)                                           # Give time for the message to be read
         display.lcd_clear()                                # Clear the display of any data
         sleep(1)                                           # Give time for the message to be read
-except KeyboardInterrupt:
-    # If there is a KeyboardInterrupt (when you press ctrl+c), exit the program and cleanup
-    print("Cleaning up!")
+    except:
+    print("error in except")
     display.lcd_clear()
+display.lcd_clear()
