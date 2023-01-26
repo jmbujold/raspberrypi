@@ -19,6 +19,7 @@ url = "https://api-v3.mbta.com/predictions?filter[stop]=place-ccmnl&filter[direc
   
 # store the response of URL
 response = urlopen(url)
+print("RESPONSE",response)
 
 #load JSON to variable, then get first train (0) and second train (1) arrival times. Time looks like '2023-01-25T11:57:00-05:00'
 data_json = json.loads(response.read())
