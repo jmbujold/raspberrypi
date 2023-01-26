@@ -1,6 +1,5 @@
 # import urllib library, used to access the API URL
-from urllib.request import urlopen
-import requests
+from urllib.import urlopen
 
 # import json library to parse JSON response from API
 import json 
@@ -23,7 +22,7 @@ print("response",response)
 print(type(response))
 
 #load JSON to variable, then get first train (0) and second train (1) arrival times. Time looks like '2023-01-25T11:57:00-05:00'
-data_json = json.load(response.read())
+data_json = json.loads(response.read())
 
 #load JSON to variable, then get first train (0) and second train (1) arrival times. Time looks like '2023-01-25T11:57:00-05:00'
 first_train = parse(data_json['data'][0]['attributes']['arrival_time']).replace(tzinfo=None)
