@@ -23,7 +23,7 @@ print("response",response)
 print(type(response))
 
 #load JSON to variable, then get first train (0) and second train (1) arrival times. Time looks like '2023-01-25T11:57:00-05:00'
-response = response.deconde()
+response = response.decode()
 print(type(response))
 
 data_json = json.load(response)
