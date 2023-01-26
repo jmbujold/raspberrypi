@@ -21,7 +21,7 @@ url = "https://api-v3.mbta.com/predictions?filter[stop]=place-ccmnl&filter[direc
 response = urlopen(url)
 
 #load JSON to variable, then get first train (0) and second train (1) arrival times. Time looks like '2023-01-25T11:57:00-05:00'
-data_json = reponse.json()
+data_json = response.json()
 
 #load JSON to variable, then get first train (0) and second train (1) arrival times. Time looks like '2023-01-25T11:57:00-05:00'
 first_train = parse(data_json['data'][0]['attributes']['arrival_time']).replace(tzinfo=None)
