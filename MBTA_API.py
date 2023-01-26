@@ -1,5 +1,5 @@
 # import urllib library, used to access the API URL
-from urllib.import urlopen
+from urllib.request import urlopen
 
 # import json library to parse JSON response from API
 import json 
