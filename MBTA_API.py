@@ -10,6 +10,7 @@ import drivers
 # using datetime module, used to get current time
 from datetime import datetime, timezone, timedelta
 from dateutil.parser import parse
+from time import sleep
 
 # Load the driver and set it to "display"
 # If you use something from the driver library use the "display." prefix first
@@ -46,8 +47,13 @@ try:
     while True:
         # Remember that your sentences can only be 16 characters long!
         print("Writing to display")
-        display.lcd_display_string("Com Col Nxt Trn:", 1)  # Write line of text to first line of display
-        display.lcd_display_string(str(first_train - ct), 2)  # Write line of text to second line of display
+        display.lcd_display_string("Comm Col Inbound", 1)  # Write line of text to first line of display
+        display.lcd_display_string(str(first_train - ct)), 2)  # Write line of text to second line of display
+        sleep(2)                                           # Give time for the message to be read
+        display.lcd_clear()                                # Clear the display of any data
+        sleep(1)                                           # Give time for the message to be read
+        display.lcd_display_string("Comm Col Inbound", 1)  # Write line of text to first line of display
+        display.lcd_display_string(str(second_train - ct)), 2)  # Write line of text to second line of display
         sleep(2)                                           # Give time for the message to be read
         display.lcd_clear()                                # Clear the display of any data
         sleep(1)                                           # Give time for the message to be read
