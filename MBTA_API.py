@@ -17,16 +17,16 @@ ct = parse(datetime.now().replace(microsecond=0).isoformat())
 # store MBTA API that returns JSON with train information for place-ccmnl stop - inbound (Community College, Orange Line, Inbound)
 url = "https://api-v3.mbta.com/predictions?filter[stop]=place-ccmnl&filter[direction_id]=0"
   
-html = urlopen(url).read()
-print(type(html))
-response = json.loads(html.decode('utf-8'))
-print(response)
+# store the response of URL
+response = urlopen(url)
 
 #load JSON to variable, then get first train (0) and second train (1) arrival times. Time looks like '2023-01-25T11:57:00-05:00'
+data_json = json.loads(response.read())
 
-data_json = json.dumps(response)
+#load JSON to variable, then get first train (0) and second train (1) arrival times. Time looks like '2023-01-25T11:57:00-05:00'
 first_train = parse(data_json['data'][0]['attributes']['arrival_time']).replace(tzinfo=None)
 second_train = parse(data_json['data'][1]['attributes']['arrival_time']).replace(tzinfo=None)
+
 
 print("Community College Inbound:")
 print("Next Train: ", first_train - ct, " Min")
